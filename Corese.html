@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Course by Koustubh Javheri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .course-card {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .course-card h2 {
+            color: #1a73e8;
+            font-size: 1.8em;
+        }
+
+        .course-card p {
+            color: #555;
+            font-size: 1em;
+            margin: 15px 0;
+        }
+
+        .course-card .price {
+            font-size: 1.5em;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .course-card button {
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .course-card button:hover {
+            background-color: #0d5bb1;
+        }
+
+        .timer {
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer h2 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn with KOUSTUBH JAVHERI</h1>
+        <p>Ex-Employee of Wipro, HCL, and Capgemini</p>
+    </header>
+
+    <section>
+        <h2>Upcoming Courses</h2>
+
+        <div class="course-card">
+            <h2>C# & ASP.NET MVC & Other Technologies</h2>
+            <p>Master C#, ASP.NET, and other essential technologies with hands-on projects.</p>
+            <p class="price">₹10,000</p>
+            <p>Duration: 6 Months</p>
+            <p>Seats available: <span id="seats1">25</span></p>
+            <button onclick="bookSeat('seats1')">Book Now</button>
+        </div>
+
+        <div class="course-card">
+            <h2>Angular or React.js</h2>
+            <p>Learn Angular and React.js for modern web development.</p>
+            <p class="price">₹5,000</p>
+            <p>Duration: 3 Months</p>
+            <p>Seats available: <span id="seats2">25</span></p>
+            <button onclick="bookSeat('seats2')">Book Now</button>
+        </div>
+
+        <div class="course-card">
+            <h2>Unity Game Development with .NET</h2>
+            <p>Start developing games using Unity and .NET technologies.</p>
+            <p class="price">₹10,000</p>
+            <p>Duration: 6 Months</p>
+            <p>Seats available: <span id="seats3">25</span></p>
+            <button onclick="bookSeat('seats3')">Book Now</button>
+        </div>
+
+        <div class="timer">
+            <p>Course Starts In: <span id="countdown"></span></p>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Register for the Course Now!</h2>
+        <p>Contact us for more details at <strong>javherikg@outlook.com</strong></p>
+        <p>Mobile and whatapp  <strong>8792839996</strong></p>
+
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date("March 15, 2025 00:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+        <p> Mobile ane watapp <strong> 8792839996 </strong></p>
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Course Started!";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Seat Booking Logic
+        function bookSeat(seatId) {
+            const seatsElement = document.getElementById(seatId);
+            let availableSeats = parseInt(seatsElement.innerText);
+            
+            if (availableSeats > 0) {
+                availableSeats--;
+                seatsElement.innerText = availableSeats;
+            } else {
+                alert("Sorry, no seats available!");
+            }
+        }
+    </script>
+</body>
+
+</html>
